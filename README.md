@@ -1,53 +1,106 @@
 # 👋 My Deep Learning Journey
 
-Welcome to my deep learning repository! This is where I've been keeping all the Jupyter Notebooks for my assignments. It's basically a log of my progress—starting from the absolute basics of neural networks and working all the way up to some pretty cool image classification using transfer learning. 
+Welcome to my deep learning assignments repository! This is where I've been keeping all the Jupyter Notebooks from my course labs. It's basically a log of my progress — starting from the absolute basics of neural networks all the way up to advanced image classification using state-of-the-art transfer learning architectures.
 
-Everything here is built using Python, TensorFlow, and Keras.
+Everything here is built using **Python, TensorFlow, and Keras**, and all experiments were run on **Google Colab**.
 
-## 🗂️ What's Inside?
+---
 
-Here's a quick tour of what I've been working on:
+## 🗂️ Repository Structure
 
-*   **[Lab 1: Dipping My Toes into Neural Networks](lab1.ipynb)**
-    *   **What it is:** My very first time building a neural network with TensorFlow and Keras.
-    *   **What I learned:** I got the hang of data preprocessing and built a simple Multi-Layer Perceptron (MLP). I used it to classify different types of Iris flowers based on the classic dataset!
-    
-*   **[Lab 2: Stopping the Overfitting Monster](lab2.ipynb)**
-    *   **What it is:** A deep dive into why models overfit and how to stop them.
-    *   **What I learned:** I worked with the Wine dataset and experimented with L1/L2 regularization. I also set up `EarlyStopping` callbacks so the model knows when to quit training before it just memorizes the training data.
+```
+dlassigmnet/
+├── Assignment 1/         → TensorFlow setup & first neural network (Iris dataset)
+│   ├── lab1.ipynb
+│   └── README.md
+│
+├── Assignment 2/         → Regularization & Early Stopping (Wine dataset)
+│   ├── lab2.ipynb
+│   └── README.md
+│
+├── Assigment 3/          → Forward & Backward Propagation from scratch (Wine dataset)
+│   ├── lab3.ipynb
+│   └── README.md
+│
+├── Assigment 6/          → CNN for Tomato Image Classification (Kaggle dataset)
+│   ├── lab6.ipynb
+│   └── README.md
+│
+└── Assigmnet 7/          → Transfer Learning: VGG16, ResNet50, EfficientNetB0 (Soyabean dataset)
+    ├── lab7.ipynb
+    └── README.md
+```
 
-*   **[Lab 3: Going Deeper with Classification](lab3.ipynb)**
-    *   **What it is:** Pushing the neural network architecture a bit further.
-    *   **What I learned:** More multi-class classification on the Wine dataset, but this time I spent more time evaluating the model using accuracy scores, confusion matrices, and detailed classification reports to really understand where it was succeeding and failing.
+---
 
-*   **[Lab 6: Seeing the World with CNNs](lab6.ipynb)**
-    *   **What it is:** My introduction to Convolutional Neural Networks (CNNs) and Computer Vision!
-    *   **What I learned:** Instead of tabular data, I started feeding images into the model. I used `ImageDataGenerator` to load and augment a dataset I pulled from Kaggle, and built my very own CNN from scratch.
+## 📚 Assignment Summaries
 
-*   **[Lab 7: Standing on the Shoulders of Giants (Transfer Learning)](lab7.ipynb)**
-    *   **What it is:** Why train from scratch when you can use models that are already super smart?
-    *   **What I learned:** I tackled advanced image classification using transfer learning. I fine-tuned massive pre-trained models like VGG16, ResNet50, and EfficientNetB0, utilizing `image_dataset_from_directory` to handle the data smoothly.
+### [Assignment 1 — First Neural Network on Iris Dataset](Assignment%201/README.md)
+My very first time building a neural network with TensorFlow and Keras. I loaded the classic Iris dataset, preprocessed it (scaling + train-test split), and built a simple MLP (Multi-Layer Perceptron) to classify flower species.
 
-## 🛠️ The Tools I Used
+**Key skills:** Data preprocessing, StandardScaler, MLP architecture, Dropout, Softmax
 
-*   **Python** (The bread and butter)
-*   **TensorFlow & Keras** (The heavy lifters for building the models)
-*   **Scikit-Learn** (Super handy for grabbing datasets and evaluation metrics)
-*   **Pandas & NumPy** (For wrangling all that data)
-*   **Matplotlib & Seaborn** (For making sense of the numbers through cool graphs)
+---
 
-## 🚀 Want to try it out?
+### [Assignment 2 — Regularization & Early Stopping](Assignment%202/README.md)
+A deep dive into the overfitting problem. I ran 4 experiments on the Wine dataset — a bare model, one with L1 regularization, one with L2 regularization, and one with Early Stopping — and compared their accuracy.
 
-If you want to poke around and run the code yourself, it's pretty straightforward:
+**Key skills:** L1/L2 regularization, EarlyStopping callback, confusion matrix, classification report  
+**Best Accuracy Achieved:** 97.22%
+
+---
+
+### [Assignment 3 — Manual Forward & Backpropagation](Assigment%203/README.md)
+Instead of just calling `model.fit()`, I implemented the training loop **from scratch** using TensorFlow's `GradientTape`. I also studied the effect of different learning rates and epoch counts on performance.
+
+**Key skills:** `tf.GradientTape`, manual gradient calculation, mini-batch training, hyperparameter tuning  
+**Best Test Accuracy:** 97.22% (lr=0.01, 100 epochs)
+
+---
+
+### [Assignment 6 — CNN for Tomato Classification](Assigment%206/README.md)
+My first foray into Computer Vision! I built a CNN from scratch to classify tomato images (Ripe, Unripe, Damaged, Old) using a 6,500-image Kaggle dataset with data augmentation.
+
+**Key skills:** CNN architecture, ImageDataGenerator, data augmentation, Conv2D, MaxPooling2D, GlobalAveragePooling2D  
+**Dataset:** `enalis/tomatoes-dataset` from Kaggle (6,500 training images)
+
+---
+
+### [Assignment 7 — Transfer Learning](Assigmnet%207/README.md)
+The most advanced lab — using pre-trained giants (VGG16, ResNet50, EfficientNetB0) to classify a Soyabean image dataset. I built a reusable transfer learning pipeline that freezes the base model and adds a custom classification head.
+
+**Key skills:** Transfer learning, feature extraction, VGG16, ResNet50, EfficientNetB0, `image_dataset_from_directory`, data prefetching  
+**Dataset:** `akansha03mulchandani/soyabean` from Kaggle
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Tools |
+|----------|-------|
+| Deep Learning | TensorFlow 2.20+, Keras |
+| Data & ML | NumPy, Pandas, Scikit-Learn |
+| Visualization | Matplotlib, Seaborn |
+| Image/Dataset | KaggleHub, ImageDataGenerator |
+| Environment | Google Colab (Python 3.12/3.13) |
+
+---
+
+## 🚀 Getting Started
+
+If you want to run any of the notebooks yourself:
 
 1. Make sure you have Python installed.
-2. Install the packages I used:
+2. Install the required dependencies:
    ```bash
    pip install tensorflow scikit-learn pandas numpy matplotlib seaborn kagglehub
    ```
-3. Fire up Jupyter Notebook (or JupyterLab) and open any of the `.ipynb` files:
+3. Open a notebook using Jupyter:
    ```bash
    jupyter notebook
    ```
+   > **Tip:** Labs 6 and 7 require a Kaggle account and API token to download datasets via `kagglehub`. Run them on Google Colab for the best experience.
 
-Thanks for stopping by and checking out my work!
+---
+
+Thanks for checking out my work! 🙌
